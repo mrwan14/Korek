@@ -1,0 +1,39 @@
+
+.nav {
+    width: 60px;
+    background: #1e1e1e;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .nav-logo img {
+    height: 40px;
+    width: 39px;
+    margin: 11px;
+  }
+  .icons {
+    position: absolute;
+    top: 124px;
+  }
+  
+  .icon {
+    height: 24px;
+    width: 24px;
+    margin-bottom: 33px;
+    margin-left: 18px;
+  }
+  .icon img,
+  .exit img {
+    width: 100%;
+  }
+  .exit {
+    height: 30px;
+    width: 30px;
+    margin-left: 18px;
+    position: absolute;
+    bottom: 15px;
+  }
+  

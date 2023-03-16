@@ -1,0 +1,28 @@
+.item {
+  width: 350px;
+  height: 150px;
+  border-radius: 10px;
+  padding: 19px 31px;
+  width: 100%;
+}
+.item1{
+    background-color: rgba(75, 174, 79, 1);
+}
+.item2{
+    background-color: rgba(238, 82, 83, 1);
+
+}
+.item3{
+    background-color: rgba(47, 46, 65, 1);
+
+}
+.item h6 {
+  height: 20px;
+  width: 259px;
+}
+.line{
+    border: 1px solid rgba(229, 229, 229, 1);
+    margin: 60px auto;
+    height: 1px;
+    width: 60%;
+}
