@@ -32,9 +32,11 @@ export default function Navbar() {
             <img src={require("../images/settings.png")} alt="" />
           </div>{" "}
         </div>
-        <div className="exit">
-          <img src={require("../images/exit.png")} alt="" />
-        </div>
+        <Link to='/login'>
+          <div className="exit">
+            <img src={require("../images/exit.png")} alt="" />
+          </div>
+        </Link>
       </div>
     </div>
   );
