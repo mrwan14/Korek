@@ -7,3 +7,11 @@
   margin: auto;
   margin-top: 81px;
 }
+@media (min-width: 0px) and (max-width: 576px) {
+.outlet{
+
+    justify-content: center;
+    display: flex;
+  }
+
+}

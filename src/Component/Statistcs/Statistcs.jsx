@@ -47,7 +47,7 @@ export default function Statistcs() {
       </div>
 
       <div className="statistcs d-flex row">
-        <div className="col-md-4 col-sm-10 m-sm-auto p-2 ">
+        <div className="col-md-4 col-sm-10 m-sm-auto p-2  ">
           <div className="item item1 text-white d-flex">
             <h6>Registered Users</h6>
             <div className="d-flex justify-content-end align-items-end">
@@ -56,7 +56,7 @@ export default function Statistcs() {
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-sm-10 m-sm-auto p-2 ">
+        <div className="col-md-4 col-sm-10 m-sm-auto  p-2 ">
           <div className="item item2 text-white d-flex">
             <h6>Registered Service Providers</h6>
             <div className="d-flex justify-content-end align-items-end">

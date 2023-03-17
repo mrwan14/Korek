@@ -36,14 +36,12 @@
     border-radius: 10px;
     padding: 19px 31px;
     width: 80%;
-    margin-left: 80px
-
+    margin: auto;
   }
   .dropdown {
     position: relative;
     top: -50px;
-    left: 70px;
+    left: 160px;
   }
-
 
 }
