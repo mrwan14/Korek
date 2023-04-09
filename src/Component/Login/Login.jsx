@@ -32,7 +32,7 @@ export default function Login() {
           Login
         </button>
       </form>
-      <div className="forget-password d-flex">
+      <div className="forget-password ">
         <p>Forget Password? </p>
         <a href=""> Reset Password </a>
       </div>
