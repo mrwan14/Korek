@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,  } from "react";
 import { DataContext } from "../../Context/DataContext";
 import "./Shop.css";
 import Pagination from "../Pantigation/pantigation";
 import { HiFilter } from "react-icons/hi";
 import MyModal from "../MyModel/MyModal";
-import EditProduct from "../MyModel/EditProduct";
 
 export default function Shop() {
   let {
@@ -45,14 +44,7 @@ export default function Shop() {
           <div>
             <div className="row mt-4">
               {currentItems.map((product) => (
-                <div
-                  className="col-md-6  col-sm-12 gy-3    p-2  product-container "
-                  onClick={
-                    <>
-                      <EditProduct />
-                    </>
-                  }
-                >
+                <div className="col-md-6  col-sm-12 gy-3    p-2  product-container ">
                   <div className="product">
                     <div className="row gx-2">
                       <div className="col-md-5 col-5">
