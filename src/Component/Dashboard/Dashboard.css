@@ -10,8 +10,13 @@
 @media (min-width: 0px) and (max-width: 576px) {
 .outlet{
 
-    justify-content: center;
     display: flex;
+    justify-content: center;
+
+  }
+  .dashboard .title h1
+  {
+    font-size: 20px;
   }
 
 }

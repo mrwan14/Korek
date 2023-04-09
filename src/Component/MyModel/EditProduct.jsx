@@ -27,9 +27,9 @@ const modalStyle = {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 };
-const MyModal = () => {
+const EditProduct = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  let {carModel ,CarBrand, ManufactureYear}=useContext(DataContext)
+  let { carModel, CarBrand, ManufactureYear } = useContext(DataContext);
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
@@ -41,13 +41,7 @@ const MyModal = () => {
 
   return (
     <>
-      <button
-        onClick={handleOpenModal}
-        className="btn btn-black text-white  mt-0 "
-      >
-        {" "}
-        Create Product
-      </button>
+
 
       <Modal
         isOpen={modalIsOpen}
@@ -60,7 +54,7 @@ const MyModal = () => {
           <AiOutlineClose onClick={handleCloseModal} />
         </div>{" "}
         <div className="content text-center ">
-          <h3>Create a new product</h3>
+          <h3>Edit product #124</h3>
           <form action="">
             <div class="form-group">
               <label for="exampleFormControlInput1"></label>
@@ -75,20 +69,17 @@ const MyModal = () => {
               <label for="exampleFormControlSelect1"></label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option>Select Car Brand</option>
-                {CarBrand.map((brand)=>(
-                <option>{brand}</option>
-
+                {CarBrand.map((brand) => (
+                  <option>{brand}</option>
                 ))}
-
               </select>
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1"></label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option>Select Car Model</option>
-                {carModel.map((model)=>(
-                <option>{model}</option>
-
+                {carModel.map((model) => (
+                  <option>{model}</option>
                 ))}
               </select>
             </div>
@@ -96,9 +87,8 @@ const MyModal = () => {
               <label for="exampleFormControlSelect1"></label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option>Select Manufacture Year</option>
-                {ManufactureYear.map((year)=>(
-                <option>{year}</option>
-
+                {ManufactureYear.map((year) => (
+                  <option>{year}</option>
                 ))}
               </select>
             </div>
@@ -142,7 +132,7 @@ const MyModal = () => {
             className="btn btn-black text-white "
             onClick={handleCloseModal}
           >
-            Create
+            Edit
           </button>
         </div>{" "}
       </Modal>
@@ -150,4 +140,4 @@ const MyModal = () => {
   );
 };
 
-export default MyModal;
+export default EditProduct;

@@ -4,70 +4,33 @@ import "./Shop.css";
 import Pagination from "../Pantigation/pantigation";
 import { HiFilter } from "react-icons/hi";
 import MyModal from "../MyModel/MyModal";
+import EditProduct from "../MyModel/EditProduct";
 
 export default function Shop() {
-  let { Data } = useContext(DataContext);
+  let {
+    Data,
+    CarBrand,
+    carModel,
+    ManufactureYear,
+    handleBrandChange,
+    selectedCategories,
 
-  const CarBrand = [
-    "Toyota",
-    "Hyundai",
-    "Kia",
-    "Chevrolet",
-    "Nissan",
-    "Mitsubishi",
-    "Mercedes",
-    "BMW",
-    "Peugeot",
-    "Renault",
-  ];
-  const carModel = [
-    "Corolla",
-    "Camry",
-    "Yaris",
-    "Fortuner",
-    "RAV4",
-    "Land Cruiser",
-  ];
-  const ManufactureYear = [
-    "2013",
-    "2014",
-    "2015",
-    "2017",
-    "2018",
-    " 2019",
-    "2020",
-    "2021",
-    "2022",
-    "2023",
-  ];
-
-  const [selectedCategories, setSelectedCategories] = useState([]);
-
-  const handleBrandChange = (Car_Brand) => {
-    if (selectedCategories.includes(Car_Brand)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== Car_Brand));
-    } else {
-      setSelectedCategories([...selectedCategories, Car_Brand]);
-    }
-  };
+    indexOfLastItem,
+    indexOfFirstItem,
+    itemsPerPage,
+    paginate,
+  } = useContext(DataContext);
 
   const filteredData = Data.filter((item) =>
     selectedCategories.includes(item.Car_Brand)
   );
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(8);
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = Data.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div className="shop">
       <div className="row">
-        <div className="col-md-7  ">
+        <div className=" col-lg-8  col-md-7   ">
           <div className="top-buttons d-flex justify-content-between">
             <div>
               {" "}
@@ -82,38 +45,50 @@ export default function Shop() {
           <div>
             <div className="row mt-4">
               {currentItems.map((product) => (
-                <div className="col-md-6   gy-3  p-2  product-container ">
-                  <div className="row">
-                    <div className="col-md-4">
-                      <div className="img-container">
-                        <img src={product.ImgSrc} alt="" className="w-100" />
-                      </div>{" "}
-                    </div>
-                    <div className="col-md-7">
-                      <div className="product-desc">
-                        <div className="d-flex justify-content-between">
-                          <p className="product-in-stock">
-                            {product.countInStock}{" "}
-                            <span className="text-muted">In stock</span>
+                <div
+                  className="col-md-6  col-sm-12 gy-3    p-2  product-container "
+                  onClick={
+                    <>
+                      <EditProduct />
+                    </>
+                  }
+                >
+                  <div className="product">
+                    <div className="row gx-2">
+                      <div className="col-md-5 col-5">
+                        <div className="img-product">
+                          <img src={product.ImgSrc} alt="" className="w-100" />
+                        </div>{" "}
+                      </div>
+                      <div className="col-md-7 col-7">
+                        {" "}
+                        <div className="desc-product">
+                          <div className="d-flex justify-content-between">
+                            <p className="product-in-stock">
+                              {product.countInStock}{" "}
+                              <span className="text-muted">In stock</span>
+                            </p>
+                            <h5 className="product-price">
+                              {product.Price} L.E{" "}
+                            </h5>
+                          </div>
+                          <h4 className="product-name">
+                            {product.Product_Name}
+                          </h4>
+                          <p className="product-details">
+                            {product.Product_Details}
                           </p>
-                          <h5 className="product-price">
-                            {product.Price} L.E{" "}
-                          </h5>
-                        </div>
-                        <h4 className="product-name">{product.Product_Name}</h4>
-                        <p className="product-details">
-                          {product.Product_Details}
-                        </p>
-                        <div className="d-flex justify-content-between">
-                          <button className="bton">
-                            <p className="btn-desc">{product.Car_Model}</p>
-                          </button>
-                          <button className="bton">
-                            <p className="btn-desc">{product.Car_Color}</p>
-                          </button>
-                          <button className="bton">
-                            <p className="btn-desc">{product.Car_Brand}</p>
-                          </button>
+                          <div className="d-flex justify-content-between">
+                            <button className="bton">
+                              <p className="btn-desc">{product.Car_Model}</p>
+                            </button>
+                            <button className="bton">
+                              <p className="btn-desc">{product.Car_Color}</p>
+                            </button>
+                            <button className="bton">
+                              <p className="btn-desc">{product.Car_Brand}</p>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -121,7 +96,7 @@ export default function Shop() {
                 </div>
               ))}
             </div>
-            <div className=" d-flex justify-content-center">
+            <div className=" d-flex justify-content-center  Pagination">
               {" "}
               <Pagination
                 itemsPerPage={itemsPerPage}
@@ -135,15 +110,15 @@ export default function Shop() {
         <div className="col-md-1">
           <div className="brdr"></div>
         </div>
-        <div className="col-md-4 ">
+        <div className="col-lg-3 col-md-4 ">
           <div className=" text-center filter">
-            <h3 className="my-3">
+            <h3 className="filter-title">
               Car Brand <HiFilter className="filter-icon" />
             </h3>
 
-            <div className="row">
+            <div className="row gx-0 gx-md-5  ">
               {CarBrand.map((brand) => (
-                <div className="col-md-4">
+                <div className="col-md-6 col-lg-4 col-sm-4 col-4">
                   <input
                     type="checkbox"
                     class="hidden"
@@ -156,13 +131,13 @@ export default function Shop() {
                 </div>
               ))}
             </div>
-            <h3 className="my-3">
+            <h3 className=" filter-title">
               Car Model <HiFilter className="filter-icon" />
             </h3>
 
-            <div className="row">
+            <div className="row gx-0 gx-md-5 ">
               {carModel.map((brand) => (
-                <div className="col-md-4">
+                <div className="col-md-6 col-lg-4 col-sm-4 col-4">
                   <input
                     type="checkbox"
                     class="hidden"
@@ -175,13 +150,13 @@ export default function Shop() {
                 </div>
               ))}
             </div>
-            <h3 className="my-3">
+            <h3 className="filter-title">
               Manufacture Year <HiFilter className="filter-icon" />
             </h3>
 
-            <div className="row">
+            <div className="row gx-0 gx-md-5 ">
               {ManufactureYear.map((brand) => (
-                <div className="col-md-4">
+                <div className="col-md-6 col-lg-4 col-sm-4 col-4">
                   <input
                     type="checkbox"
                     class="hidden"
@@ -194,12 +169,6 @@ export default function Shop() {
                 </div>
               ))}
             </div>
-
-            <ul>
-              {filteredData.map((item) => (
-                <li key={item.id}>{item.Car_Brand}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

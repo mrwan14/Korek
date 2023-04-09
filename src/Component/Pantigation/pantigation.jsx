@@ -21,7 +21,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
           <li key={number} className="page-item">
             <a
               href="#"
-              className={`page-link ${number === currentPage ? 'active-page' : ''}`}
+              className={`page-link ${number === currentPage ? 'active-page' : ''} d-flex justify-content-center align-items-center`}
               onClick={() => handleClick(number)}
             >
               {number}

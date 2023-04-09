@@ -48,7 +48,7 @@
   font-weight: 600;
   line-height: 20px;
 }
-@media (min-width: 0px) and (max-width: 360px) {
+@media (min-width: 0px) and (max-width: 700px) {
   .forget-password {
     justify-content: center;
     margin-top: 40px;
