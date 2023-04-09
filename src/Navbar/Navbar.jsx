@@ -16,23 +16,30 @@ export default function Navbar() {
               <img src={require("../images/statics.png")} alt="" />
             </div>{" "}
           </Link>
-          <div className="icon">
-            <img src={require("../images/cart.png")} alt="" />
-          </div>{" "}
+          <Link to="/shop">
+            <div className="icon">
+              <img src={require("../images/cart.png")} alt="" />
+            </div>{" "}
+          </Link>
           <div className="icon">
             <img src={require("../images/logo3.png")} alt="" />
           </div>{" "}
-          <div className="icon">
-            <img src={require("../images/community.png")} alt="" />
-          </div>{" "}
+          <Link to="/community">
+            {" "}
+            <div className="icon">
+              <img src={require("../images/community.png")} alt="" />
+            </div>{" "}
+          </Link>
           <div className="icon">
             <img src={require("../images/fix.png")} alt="" />
           </div>{" "}
-          <div className="icon">
-            <img src={require("../images/settings.png")} alt="" />
-          </div>{" "}
+          <Link to="/Settings">
+            <div className="icon">
+              <img src={require("../images/settings.png")} alt="" />
+            </div>{" "}
+          </Link>
         </div>
-        <Link to='/login'>
+        <Link to="/login">
           <div className="exit">
             <img src={require("../images/exit.png")} alt="" />
           </div>
