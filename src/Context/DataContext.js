@@ -15,7 +15,7 @@ export default function DataContextProvider(props) {
     })();
   }, []);
 
-  /// filter data 
+  /// filter data
   const CarBrand = [
     "Toyota",
     "Hyundai",

@@ -1,21 +1,19 @@
 import React, { useContext, useState } from "react";
 import { DataContext } from "../../Context/DataContext";
 import "./commmunity.css";
-import MyModal from "../MyModel/MyModal";
 
 const FilteredList = () => {
   let { Data } = useContext(DataContext);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState([]);
   const handleBrandChange = (Car_Brand) => {
-    if (selectedCategories.includes(Car_Brand)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== Car_Brand));
+    if (selectedBrand.includes(Car_Brand)) {
+      setSelectedBrand(selectedBrand.filter((c) => c !== Car_Brand));
     } else {
-      setSelectedCategories([...selectedCategories, Car_Brand]);
+      setSelectedBrand([...selectedBrand, Car_Brand]);
     }
   };
-
   const filteredData = Data.filter((item) =>
-    selectedCategories.includes(item.Car_Brand)
+    selectedBrand.includes(item.Car_Brand)
   );
 
   return (
@@ -28,7 +26,7 @@ const FilteredList = () => {
           name="BMW"
           id="BMW"
           onChange={() => handleBrandChange("BMW")}
-          checked={selectedCategories.includes("BMW")}
+          checked={selectedBrand.includes("BMW")}
         />
         <label for="BMW">BMW</label>
         <input
@@ -37,7 +35,7 @@ const FilteredList = () => {
           name="Mercedes"
           id="Mercedes"
           onChange={() => handleBrandChange("Mercedes")}
-          checked={selectedCategories.includes("Mercedes")}
+          checked={selectedBrand.includes("Mercedes")}
         />
         <label for="Mercedes">Mercedes</label>
         <input
@@ -46,16 +44,30 @@ const FilteredList = () => {
           name="Toyota"
           id="Toyota"
           onChange={() => handleBrandChange("Toyota")}
-          checked={selectedCategories.includes("Toyota")}
+          checked={selectedBrand.includes("Toyota")}
         />
         <label for="Toyota">Toyota</label>
-
-        <ul>
-          {filteredData.map((item) => (
-            <li key={item.id}>{item.Car_Brand}</li>
-          ))}
-        </ul>
+        {filteredData.length === 0 ? (
+          <>
+            {
+              <ul>
+                {Data.map((item) => (
+                  <li key={item.id}>{item.Car_Brand}</li>
+                ))}
+              </ul>
+            }
+          </>
+        ) : (
+          <>
+            <ul>
+              {filteredData.map((item) => (
+                <li key={item.id}>{item.Car_Brand}</li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
+      <div></div>
     </>
   );
 };

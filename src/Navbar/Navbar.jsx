@@ -21,9 +21,11 @@ export default function Navbar() {
               <img src={require("../images/cart.png")} alt="" />
             </div>{" "}
           </Link>
-          <div className="icon">
-            <img src={require("../images/logo3.png")} alt="" />
-          </div>{" "}
+          <Link to="/providers">
+            <div className="icon">
+              <img src={require("../images/logo3.png")} alt="" />
+            </div>{" "}
+          </Link>
           <Link to="/community">
             {" "}
             <div className="icon">

@@ -1,21 +1,12 @@
-.page-item {
-  width: 30px;
-  height: 40px;
-  background-color: rgba(131, 149, 167, 1);
-  border-radius: 2px;
-}
 .page-link {
-  background-color: transparent;
-}
-.page-link:hover {
-  background-color: black;
-  width: 30px;
-  height: 40px;
-  color: rgb(255, 255, 255);
-  border-radius: 2;
+  background-color: rgba(131, 149, 167, 1);
+  height: 50px;
+  width: 50px;
 }
 .active-page {
-  background: rgba(63, 61, 86, 1);
-  width: 30px;
-  height: 40px;
+  background-color: black;
+  height: 50px;
+  width: 50px;
+  border: 0;
+  border-radius: 0;
 }
