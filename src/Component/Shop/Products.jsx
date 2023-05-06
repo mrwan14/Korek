@@ -19,7 +19,15 @@ export default function Products() {
                 <div className="row gx-2">
                   <div className="col-md-5 col-5">
                     <div className="img-product">
-                      <img src={product.ImgSrc} alt="" className="w-100" />
+                      <img
+                        src={`${
+                          product.ImgSrc == null
+                            ? require("../../images/product.png")
+                            : product.ImgSrc
+                        }`}
+                        alt=""
+                        className="w-100"
+                      />
                     </div>{" "}
                   </div>
                   <div className="col-md-7 col-7">
@@ -41,7 +49,7 @@ export default function Products() {
                           <p className="btn-desc">{product.Car_Model}</p>
                         </button>
                         <button className="bton">
-                          <p className="btn-desc">{product.Car_Color}</p>
+                          <p className="btn-desc">{product.Car_Color == null ? "Black" :product.Car_Color }</p>
                         </button>
                         <button className="bton">
                           <p className="btn-desc">{product.Car_Brand}</p>

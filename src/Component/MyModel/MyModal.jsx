@@ -29,7 +29,8 @@ const modalStyle = {
 };
 const MyModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  let {carModel ,CarBrand, ManufactureYear}=useContext(DataContext)
+  let { carModel, CarBrand, ManufactureYear, setData, Data } =
+    useContext(DataContext);
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
@@ -37,6 +38,17 @@ const MyModal = () => {
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
+  };
+  const [formData, setFormData] = useState({});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setData([...Data, formData]);
+
+    console.log(Data);
+    handleCloseModal();
+
+    // Do something with the form data, e.g. send it to a server
   };
 
   return (
@@ -54,6 +66,7 @@ const MyModal = () => {
         onRequestClose={handleCloseModal}
         contentLabel="Example Modal"
         style={modalStyle}
+        ariaHideApp={false}
       >
         <div className=" d-flex justify-content-end">
           {" "}
@@ -61,89 +74,118 @@ const MyModal = () => {
         </div>{" "}
         <div className="content text-center ">
           <h3>Create a new product</h3>
-          <form action="">
+          <form action="" onSubmit={handleSubmit}>
             <div class="form-group">
-              <label for="exampleFormControlInput1"></label>
+              <label htmlFor="name"></label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
-                id="exampleFormControlInput1"
+                value={formData.Product_Name}
                 placeholder="   Name"
+                onChange={(e) =>
+                  setFormData({ ...formData, Product_Name: e.target.value })
+                }
               />
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1"></label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <label htmlFor="brand"> </label>
+              <select
+                class="form-control"
+                value={formData.Car_Brand}
+                onChange={(e) =>
+                  setFormData({ ...formData, Car_Brand: e.target.value })
+                }
+              >
                 <option>Select Car Brand</option>
-                {CarBrand.map((brand)=>(
-                <option>{brand}</option>
-
+                {CarBrand.map((brand) => (
+                  <option>{brand}</option>
                 ))}
-
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1"></label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <label htmlFor="Model"> </label>
+              <select
+                class="form-control"
+                value={formData.Car_Model}
+                onChange={(e) =>
+                  setFormData({ ...formData, Car_Model: e.target.value })
+                }
+              >
                 <option>Select Car Model</option>
-                {carModel.map((model)=>(
-                <option>{model}</option>
-
+                {carModel.map((model) => (
+                  <option>{model}</option>
                 ))}
               </select>
             </div>
             <div class="form-group ">
-              <label for="exampleFormControlSelect1"></label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <label htmlFor="Year"> </label>
+              <select
+                class="form-control"
+                value={formData.year}
+                onChange={(e) =>
+                  setFormData({ ...formData, year: e.target.value })
+                }
+              >
                 <option>Select Manufacture Year</option>
-                {ManufactureYear.map((year)=>(
-                <option>{year}</option>
-
+                {ManufactureYear.map((year) => (
+                  <option>{year}</option>
                 ))}
               </select>
             </div>
             <div class="form-group ">
-              <label for="exampleFormControlTextarea1"></label>
+              <label htmlFor="description"></label>
               <textarea
                 class="form-control"
-                id="exampleFormControlTextarea1"
+                id="description"
+                value={formData.Product_Details}
                 rows="3"
                 placeholder="Description"
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    Product_Details: e.target.value,
+                  })
+                }
               ></textarea>
             </div>
             <div class="form-group  fixing ">
-              <label class="sr-only" for="inlineFormInputGroupUsername"></label>
+              <label class="sr-only" htmlFor="price"></label>
               <div class="input-group">
                 <div class="input-group-prepend"></div>
                 <input
                   type="text"
                   class="form-control"
-                  id="inlineFormInputGroupUsername"
+                  id="price"
+                  value={formData.Price}
                   placeholder="   Price"
+                  onChange={(e) =>
+                    setFormData({ ...formData, Price: e.target.value })
+                  }
                 />
                 <div class="input-group-text">EGP</div>
               </div>
             </div>
             <div class="form-group  ">
-              <label class="sr-only" for="inlineFormInputGroupUsername"></label>
+              <label class="sr-only" htmlFor="itemInStock"></label>
               <div class="input-group">
                 <div class="input-group-prepend"></div>
                 <input
                   type="text"
                   class="form-control"
-                  id="inlineFormInputGroupUsername"
+                  id="itemInStock"
+                  value={formData.countInStock}
                   placeholder="   Items In Stock"
+                  onChange={(e) =>
+                    setFormData({ ...formData, countInStock: e.target.value })
+                  }
                 />
                 <div class="input-group-text">Piece</div>
               </div>
             </div>
+            <button className="btn btn-black text-white " type="submit">
+              Create
+            </button>
           </form>
-          <button
-            className="btn btn-black text-white "
-            onClick={handleCloseModal}
-          >
-            Create
-          </button>
         </div>{" "}
       </Modal>
     </>

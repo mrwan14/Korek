@@ -71,6 +71,7 @@ export default function DataContextProvider(props) {
     <DataContext.Provider
       value={{
         Data,
+        setData,
         CarBrand,
         carModel,
         ManufactureYear,

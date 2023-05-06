@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { DataContext } from "../../Context/DataContext";
 import "./commmunity.css";
+import ProductForm from "./ProductForm";
 
 const FilteredList = () => {
   let { Data } = useContext(DataContext);
@@ -15,11 +16,28 @@ const FilteredList = () => {
   const filteredData = Data.filter((item) =>
     selectedBrand.includes(item.Car_Brand)
   );
+  const [products, setProducts] = useState([]);
+
+  const handleSubmit = (formData) => {
+    setProducts([...products, formData]);
+    
+  };
 
   return (
     <>
-      {" "}
       <div>
+        <h1>Create a new product</h1>
+        <ProductForm onSubmit={handleSubmit} />
+        <h2>Products</h2>
+        <ul>
+          {products.map((product, index) => (
+            <li key={index}>
+              {product.name} - ${product.price}
+            </li>
+          ))}
+        </ul>
+      </div>{" "}
+      {/* <div>
         <input
           type="checkbox"
           class="hidden"
@@ -67,7 +85,7 @@ const FilteredList = () => {
           </>
         )}
       </div>
-      <div></div>
+      <div></div> */}
     </>
   );
 };
