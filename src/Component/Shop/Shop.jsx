@@ -11,13 +11,26 @@ import MyModal from "../MyModel/MyModal";
 
 export default function Shop() {
   let {
-    
     CarBrand,
     carModel,
     ManufactureYear,
+    Data,
+    selectedBrand,
+    setSelectedBrand,
+    selectedModel,
+    setSelectedModel,
+    selectedYear,
+    setSelectedYear,
     handleBrandChange,
+    handleModelChange,
+    handleYearChange,
+
+    
+
+
     selectedCategories,
   } = useContext(DataContext);
+
 
   // const filteredData = Data.filter((item) =>
   //   selectedCategories.includes(item.Car_Brand)
@@ -39,7 +52,7 @@ export default function Shop() {
               </Link>
             </div>
             <div>
-              <MyModal/>
+              <MyModal />
             </div>
           </div>
           <div>
@@ -54,7 +67,6 @@ export default function Shop() {
               </div>
             )}
           </div>
-          
         </div>
 
         <div className="col-md-1">
@@ -62,9 +74,7 @@ export default function Shop() {
         </div>
         <div className="col-lg-3 col-md-4 ">
           <div className=" text-center filter">
-            <h3 className="filter-title">
-              Car Brand <HiFilter className="filter-icon" />
-            </h3>
+            <h3 className="filter-title">Car Brand</h3>
 
             <div className="row gx-0 gx-md-5  ">
               {CarBrand.map((brand) => (
@@ -74,16 +84,14 @@ export default function Shop() {
                     class="hidden"
                     name={brand}
                     id={brand}
-                    onChange={() => handleBrandChange({ brand })}
-                    checked={selectedCategories.includes({ brand })}
+                    onChange={() => handleBrandChange(brand)}
+                    checked={selectedBrand.includes(brand)}
                   />
-                  <label htmlFor={brand}>{brand}</label>
+                  <label for={brand}>{brand}</label>
                 </div>
               ))}
             </div>
-            <h3 className=" filter-title">
-              Car Model <HiFilter className="filter-icon" />
-            </h3>
+            <h3 className=" filter-title">Car Model</h3>
 
             <div className="row gx-0 gx-md-5 ">
               {carModel.map((model) => (
@@ -92,17 +100,15 @@ export default function Shop() {
                     type="checkbox"
                     class="hidden"
                     name={model}
-                    id={module}
-                    onChange={() => handleBrandChange({ model })}
-                    checked={selectedCategories.includes({ model })}
+                    id={model}
+                    onChange={() => handleModelChange(model)}
+                    checked={selectedModel.includes(model)}
                   />
                   <label htmlFor={model}>{model}</label>
                 </div>
               ))}
             </div>
-            <h3 className="filter-title">
-              Manufacture Year <HiFilter className="filter-icon" />
-            </h3>
+            <h3 className="filter-title">Manufacture Year</h3>
 
             <div className="row  gx-0 gx-md-5 ">
               {ManufactureYear.map((Year) => (
@@ -112,8 +118,8 @@ export default function Shop() {
                     class="hidden"
                     name={Year}
                     id={Year}
-                    onChange={() => handleBrandChange({ Year })}
-                    checked={selectedCategories.includes({ Year })}
+                    onChange={() => handleYearChange(Year)}
+                    checked={selectedYear.includes(Year)}
                   />
                   <label htmlFor={Year}>{Year}</label>
                 </div>

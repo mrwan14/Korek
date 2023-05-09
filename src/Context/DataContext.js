@@ -48,12 +48,29 @@ export default function DataContextProvider(props) {
     "2022",
     "2023",
   ];
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  /// Filteration
+  const [selectedBrand, setSelectedBrand] = useState([]);
+  const [selectedModel, setSelectedModel] = useState([]);
+  const [selectedYear, setSelectedYear] = useState([]);
   const handleBrandChange = (Car_Brand) => {
-    if (selectedCategories.includes(Car_Brand)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== Car_Brand));
+    if (selectedBrand.includes(Car_Brand)) {
+      setSelectedBrand(selectedBrand.filter((c) => c !== Car_Brand));
     } else {
-      setSelectedCategories([...selectedCategories, Car_Brand]);
+      setSelectedBrand([...selectedBrand, Car_Brand]);
+    }
+  };
+  const handleModelChange = (Car_Model) => {
+    if (selectedModel.includes(Car_Model)) {
+      setSelectedModel(selectedModel.filter((c) => c !== Car_Model));
+    } else {
+      setSelectedModel([...selectedModel, Car_Model]);
+    }
+  };
+  const handleYearChange = (Car_Year) => {
+    if (selectedYear.includes(Car_Year)) {
+      setSelectedYear(selectedYear.filter((c) => c !== Car_Year));
+    } else {
+      setSelectedYear([...selectedYear, Car_Year]);
     }
   };
 
@@ -76,7 +93,16 @@ export default function DataContextProvider(props) {
         carModel,
         ManufactureYear,
         handleBrandChange,
-        selectedCategories,
+        selectedBrand,
+        setSelectedBrand,
+        selectedModel,
+        setSelectedModel,
+        selectedYear,
+        setSelectedYear,
+
+        handleModelChange,
+        handleYearChange,
+
         indexOfFirstItem,
         indexOfLastItem,
         itemsPerPage,

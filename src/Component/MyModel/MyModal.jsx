@@ -121,9 +121,9 @@ const MyModal = () => {
               <label htmlFor="Year"> </label>
               <select
                 class="form-control"
-                value={formData.year}
+                value={formData.Car_Year}
                 onChange={(e) =>
-                  setFormData({ ...formData, year: e.target.value })
+                  setFormData({ ...formData, Car_Year: e.target.value })
                 }
               >
                 <option>Select Manufacture Year</option>
