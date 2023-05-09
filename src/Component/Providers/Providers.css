@@ -7,6 +7,10 @@
     margin-left: 70px;
     width: 300px;
   }
+  .product-doesnot-exist
+  {
+    margin-left: 100px;
+  }
 }
 @media (min-width: 361px) and (max-width: 576px) {
   .providers .container {

@@ -34,7 +34,7 @@ export default function Products() {
               <>
                 {!filteredData.length ? (
                   <div>
-                    <h1>Product Doesn't Exist</h1>{" "}
+                    <h1 className="product-doesnot-exist">Product Doesn't Exist</h1>{" "}
                   </div>
                 ) : (
                   <div>
