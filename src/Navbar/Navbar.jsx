@@ -2,6 +2,9 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 export default function Navbar() {
+  function QuiteApplication() {
+    localStorage.removeItem("userToken");
+  }
   return (
     <div>
       {" "}
@@ -41,7 +44,7 @@ export default function Navbar() {
             </div>{" "}
           </Link>
         </div>
-        <Link to="/login">
+        <Link to="/login" onClick={QuiteApplication}>
           <div className="exit">
             <img src={require("../images/exit.png")} alt="" />
           </div>

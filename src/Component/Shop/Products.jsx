@@ -2,8 +2,22 @@ import React from "react";
 import Pagination from "../Pantigation/pantigation";
 import { useContext } from "react";
 import { DataContext } from "../../Context/DataContext";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Products() {
+  let [category, setcategory] = useState([]);
+  async function getCatogery() {
+    let { data } = await axios.get("https://korek-app.herokuapp.com/category");
+    setcategory(data);
+  }
+
+  useEffect(() => {
+    getCatogery();
+    console.log(category);
+  }, []);
+
   let {
     Data,
     indexOfLastItem,
@@ -34,7 +48,9 @@ export default function Products() {
               <>
                 {!filteredData.length ? (
                   <div>
-                    <h1 className="product-doesnot-exist">Product Doesn't Exist</h1>{" "}
+                    <h1 className="product-doesnot-exist">
+                      Product Doesn't Exist
+                    </h1>{" "}
                   </div>
                 ) : (
                   <div>

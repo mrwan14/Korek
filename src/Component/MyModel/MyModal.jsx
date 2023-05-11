@@ -76,8 +76,24 @@ const MyModal = () => {
           <h3>Create a new product</h3>
           <form action="" onSubmit={handleSubmit}>
             <div class="form-group">
-              <label htmlFor="name"></label>
+              <label htmlFor="nameAr"></label>
               <input
+                type="text"
+                id="nameAr"
+                name="nameAr"
+                class="form-control"
+                value={formData.Product_Name}
+                placeholder="  الاسم "
+                onChange={(e) =>
+                  setFormData({ ...formData, Product_Name: e.target.value })
+                }
+              />
+            </div>
+            <div class="form-group">
+              <label htmlFor="nameEn"></label>
+              <input
+                id="nameEn"
+                name="nameEn"
                 type="text"
                 class="form-control"
                 value={formData.Product_Name}
@@ -87,6 +103,122 @@ const MyModal = () => {
                 }
               />
             </div>
+            <div class="form-group mb-5 ">
+              <label htmlFor="descriptionAr"></label>
+              <textarea
+                class="form-control "
+                id="descriptionAr"
+                value={formData.Product_Details}
+                rows="3"
+                placeholder="وصف المنتج"
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    Product_Details: e.target.value,
+                  })
+                }
+              ></textarea>
+            </div>
+            <div class="form-group  mb-5 ">
+              <label htmlFor="descriptionEn"></label>
+              <textarea
+                class="form-control"
+                id="descriptionEn"
+                value={formData.Product_Details}
+                rows="3"
+                placeholder="Description"
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    Product_Details: e.target.value,
+                  })
+                }
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label htmlFor="brand"> </label>
+              <select
+                class="form-control"
+                value={formData.Car_Brand}
+                onChange={(e) =>
+                  setFormData({ ...formData, Car_Brand: e.target.value })
+                }
+              >
+                <option>Select Catogery</option>
+                {/* {CarBrand.map((brand) => (
+                  <option value={brand.id}>{brand}</option>
+                ))} */}
+              </select>
+            </div>
+            <div class="form-group  fixing mt-5 ">
+              <label class="sr-only" htmlFor="price"></label>
+              <div class="input-group">
+                <div class="input-group-prepend"></div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="price"
+                  value={formData.Price}
+                  placeholder="   Price"
+                  onChange={(e) =>
+                    setFormData({ ...formData, Price: e.target.value })
+                  }
+                />
+                <div class="input-group-text">EGP</div>
+              </div>
+            </div>
+            <div class="form-group  fixing  ">
+              <label class="sr-only" htmlFor="shippingPrice"></label>
+              <div class="input-group">
+                <div class="input-group-prepend"></div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="shippingPrice"
+                  value={formData.shippingPrice}
+                  placeholder="   shippingPrice"
+                  onChange={(e) =>
+                    setFormData({ ...formData, shippingPrice: e.target.value })
+                  }
+                />
+                <div class="input-group-text">EGP</div>
+              </div>
+            </div>
+            <div class="form-group  ">
+              <label class="sr-only" htmlFor="itemInStock"></label>
+              <div class="input-group">
+                <div class="input-group-prepend"></div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemInStock"
+                  value={formData.countInStock}
+                  placeholder="   Items In Stock"
+                  onChange={(e) =>
+                    setFormData({ ...formData, countInStock: e.target.value })
+                  }
+                />
+                <div class="input-group-text">Piece</div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label htmlFor="brand"> </label>
+              <select 
+                class="form-control"
+                value={formData.Car_Brand}
+                placeholder="car brand"
+                onChange={(e) =>
+                  setFormData({ ...formData, Car_Brand: e.target.value })
+                }
+              >
+                {CarBrand.map((brand) => (
+                  <option >{brand}</option>
+                ))}
+              </select>
+            </div>
+            {/*
+           
+
             <div class="form-group">
               <label htmlFor="brand"> </label>
               <select
@@ -132,22 +264,7 @@ const MyModal = () => {
                 ))}
               </select>
             </div>
-            <div class="form-group ">
-              <label htmlFor="description"></label>
-              <textarea
-                class="form-control"
-                id="description"
-                value={formData.Product_Details}
-                rows="3"
-                placeholder="Description"
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    Product_Details: e.target.value,
-                  })
-                }
-              ></textarea>
-            </div>
+
             <div class="form-group  fixing ">
               <label class="sr-only" htmlFor="price"></label>
               <div class="input-group">
@@ -181,8 +298,8 @@ const MyModal = () => {
                 />
                 <div class="input-group-text">Piece</div>
               </div>
-            </div>
-            <button className="btn btn-black text-white " type="submit">
+            </div> */}
+            <button className="btn btn-black text-white mt-5" type="submit">
               Create
             </button>
           </form>

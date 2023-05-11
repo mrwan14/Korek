@@ -5,6 +5,7 @@ import Pagination from "../Component/Pantigation/pantigation";
 export let DataContext = createContext(0);
 
 export default function DataContextProvider(props) {
+  
   const [Data, setData] = useState(null);
   useEffect(() => {
     // Immediately Invoked Functionx
