@@ -7,7 +7,7 @@ import { HiFilter } from "react-icons/hi";
 import Products from "./Products";
 import Orders from "./Orders";
 import { Link } from "react-router-dom";
-import MyModal from "../MyModel/MyModal";
+import CreateProduct from "../CreateProduct/CreateProduct";
 
 export default function Shop() {
   let {
@@ -52,7 +52,7 @@ export default function Shop() {
               </Link>
             </div>
             <div>
-              <MyModal />
+              <CreateProduct />
             </div>
           </div>
           <div>

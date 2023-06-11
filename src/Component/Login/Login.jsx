@@ -4,6 +4,8 @@ import "./Login.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../../Context/DataContext";
 
 export default function Login(props) {
   let navigate = useNavigate();
@@ -14,6 +16,7 @@ export default function Login(props) {
     email: "",
     password: "",
   });
+  let { getUserTybe } = useContext(DataContext);
 
   const getUserData = (e) => {
     let myUser = { ...User };
@@ -41,9 +44,7 @@ export default function Login(props) {
         seterror(data.message);
         setIsloading(false);
       }
-      
     }
-    
   }
 
   function validateLoginForm() {
@@ -103,6 +104,26 @@ export default function Login(props) {
           )}
         </button>
       </form>
+      <label for="admin-type" className="me-3 mt-4 fw-bold">
+        Chooce Your Tybe:
+      </label>
+
+      <select
+        name="admin-type"
+        id="admin-type"
+        className=" form-select-sm"
+        onChange={getUserTybe}
+      >
+        <option value="Admin" name="Admin">
+          Admin
+        </option>
+        <option value="Service Provider" name="Service Provider">
+          Service Provider
+        </option>
+        <option value="Car Agency" name="Car Agency">
+          Car Agency
+        </option>
+      </select>
       <div className="forget-password ">
         <p>Forget Password? </p>
         <a href=""> Reset Password </a>

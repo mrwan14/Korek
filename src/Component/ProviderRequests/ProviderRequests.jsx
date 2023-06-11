@@ -4,10 +4,10 @@ import { DataContext } from "../../Context/DataContext";
 import Pagination from "../Pantigation/pantigation";
 import { useContext } from "react";
 import ViewOrders from "../CreateProduct/ViewOrders";
-import "./Providers.css";
-import ProvidersModel from "./ProvidersModel";
-import EditProviderModel from "./EditProviderModel";
-export default function Providers() {
+import "./ProviderRequests.css";
+import ViewProviderRequest from "./ViewProviderRequest";
+import EditProviderRequest from "./EditProviderRequest";
+export default function ProviderRequest() {
   let { indexOfLastItem, indexOfFirstItem, itemsPerPage, paginate } =
     useContext(DataContext);
 
@@ -15,92 +15,107 @@ export default function Providers() {
     {
       id: 2,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Delivered",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 3,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Shipping",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 1,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Cancelled",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 2,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Placed",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 3,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Cancelled",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 2,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Delivered",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 3,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Shipping",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 1,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Cancelled",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 2,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Placed",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 3,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Cancelled",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 2,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Delivered",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 3,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Shipping",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 1,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Cancelled",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 2,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Placed",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
     {
       id: 3,
       Name: "Mahmoud",
-      Email: "test@email.com",
-      LoginDate: "5 / 11",
+      Status: "Cancelled",
+      Amount: 2500,
+      Email: "Test@admin.com",
     },
   ];
 
@@ -114,9 +129,10 @@ export default function Providers() {
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Login Date</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Provider Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -125,16 +141,15 @@ export default function Providers() {
                 <tr>
                   <th scope="row">{order.id}</th>
                   <td>{order.Name}</td>
-                  <td>
-                    <p> {order.Email}</p>
-                  </td>
-                  <td>{order.LoginDate} </td>
+                  <td>{order.Name}</td>
+                  <td>14/1</td>
+                  <td>Cairo</td>
                   <td className="text-muted    ">
                     <i>
-                      <ProvidersModel order={order} />
+                      <ViewProviderRequest order={order} />
                     </i>{" "}
                     <i className="ms-3">
-                      <EditProviderModel order={order} />
+                      <EditProviderRequest order={order} />
                     </i>{" "}
                   </td>
                 </tr>

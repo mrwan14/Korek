@@ -6,9 +6,9 @@ import { DataContext } from "../../Context/DataContext";
 import Pagination from "../Pantigation/pantigation";
 
 import { useContext } from "react";
-import ViewOrders from "../MyModel/ViewOrders";
+import ViewOrders from "../CreateProduct/ViewOrders";
 export default function Orders() {
-  let {  indexOfLastItem, indexOfFirstItem, itemsPerPage, paginate } =
+  let { indexOfLastItem, indexOfFirstItem, itemsPerPage, paginate } =
     useContext(DataContext);
   const orders = [
     {
@@ -115,7 +115,7 @@ export default function Orders() {
           </Link>
           <button className="button orders-btn active">Orders</button>
         </div>
-        <div className=" container"> 
+        <div className=" container">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -149,7 +149,7 @@ export default function Orders() {
                   <td>{order.Amount}EGP </td>
                   <td className="text-muted    ">
                     <i>
-                      <ViewOrders  order={order}/>
+                      <ViewOrders order={order} />
                     </i>{" "}
                     <i className="ms-3">
                       <MdModeEdit />
@@ -172,3 +172,5 @@ export default function Orders() {
     </>
   );
 }
+
+// /////////////////////////

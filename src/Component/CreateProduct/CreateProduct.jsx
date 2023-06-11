@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import Modal from "react-modal";
-import "./myModel.css";
+import "./createProduct.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { AiFillPlusSquare } from "react-icons/ai";
 import { DataContext } from "../../Context/DataContext";
 
 const modalStyle = {
@@ -27,7 +28,7 @@ const modalStyle = {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 };
-const MyModal = () => {
+const CreateProduct = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   let { carModel, CarBrand, ManufactureYear, setData, Data } =
     useContext(DataContext);
@@ -69,9 +70,8 @@ const MyModal = () => {
         ariaHideApp={false}
       >
         <div className=" d-flex justify-content-end">
-          {" "}
           <AiOutlineClose onClick={handleCloseModal} />
-        </div>{" "}
+        </div>
         <div className="content text-center ">
           <h3>Create a new product</h3>
           <form action="" onSubmit={handleSubmit}>
@@ -135,19 +135,17 @@ const MyModal = () => {
                 }
               ></textarea>
             </div>
+
             <div class="form-group">
               <label htmlFor="brand"> </label>
-              <select
-                class="form-control"
-                value={formData.Car_Brand}
-                onChange={(e) =>
-                  setFormData({ ...formData, Car_Brand: e.target.value })
-                }
-              >
+              <select class="form-control mt-2">
                 <option>Select Catogery</option>
-                {/* {CarBrand.map((brand) => (
-                  <option value={brand.id}>{brand}</option>
-                ))} */}
+              </select>
+            </div>
+            <div class="form-group">
+              <label htmlFor="brand"> </label>
+              <select class="form-control mt-2">
+                <option>SQu</option>
               </select>
             </div>
             <div class="form-group  fixing mt-5 ">
@@ -201,112 +199,93 @@ const MyModal = () => {
                 <div class="input-group-text">Piece</div>
               </div>
             </div>
-            <div class="form-group mb-5">
-              <label htmlFor="brand"> </label>
-              <select 
-                class="form-control"
-                value={formData.Car_Brand}
-                placeholder="car brand"
-                onChange={(e) =>
-                  setFormData({ ...formData, Car_Brand: e.target.value })
-                }
-              >
-                {CarBrand.map((brand) => (
-                  <option >{brand}</option>
-                ))}
-              </select>
-            </div>
-            {/*
-           
-
-            <div class="form-group">
-              <label htmlFor="brand"> </label>
-              <select
-                class="form-control"
-                value={formData.Car_Brand}
-                onChange={(e) =>
-                  setFormData({ ...formData, Car_Brand: e.target.value })
-                }
-              >
-                <option>Select Car Brand</option>
-                {CarBrand.map((brand) => (
-                  <option>{brand}</option>
-                ))}
-              </select>
-            </div>
-            <div class="form-group">
-              <label htmlFor="Model"> </label>
-              <select
-                class="form-control"
-                value={formData.Car_Model}
-                onChange={(e) =>
-                  setFormData({ ...formData, Car_Model: e.target.value })
-                }
-              >
-                <option>Select Car Model</option>
-                {carModel.map((model) => (
-                  <option>{model}</option>
-                ))}
-              </select>
-            </div>
-            <div class="form-group ">
-              <label htmlFor="Year"> </label>
-              <select
-                class="form-control"
-                value={formData.Car_Year}
-                onChange={(e) =>
-                  setFormData({ ...formData, Car_Year: e.target.value })
-                }
-              >
-                <option>Select Manufacture Year</option>
-                {ManufactureYear.map((year) => (
-                  <option>{year}</option>
-                ))}
-              </select>
-            </div>
-
-            <div class="form-group  fixing ">
-              <label class="sr-only" htmlFor="price"></label>
-              <div class="input-group">
-                <div class="input-group-prepend"></div>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="price"
-                  value={formData.Price}
-                  placeholder="   Price"
-                  onChange={(e) =>
-                    setFormData({ ...formData, Price: e.target.value })
-                  }
-                />
-                <div class="input-group-text">EGP</div>
+            <div>
+              <h6 className="car-brand-title">Car Brand</h6>
+              <div className="row">
+                <div className="col-md-6">
+                  <input type="checkbox" />
+                  <label> Toyota</label>
+                </div>
+                <div className="col-md-6">
+                  <input type="checkbox" />
+                  <label> Toyota</label>
+                </div>
               </div>
             </div>
-            <div class="form-group  ">
-              <label class="sr-only" htmlFor="itemInStock"></label>
-              <div class="input-group">
-                <div class="input-group-prepend"></div>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="itemInStock"
-                  value={formData.countInStock}
-                  placeholder="   Items In Stock"
-                  onChange={(e) =>
-                    setFormData({ ...formData, countInStock: e.target.value })
-                  }
-                />
-                <div class="input-group-text">Piece</div>
+            <div className="varient">
+              <div className="d-flex justify-content-between mx-5">
+                <h6>Varient</h6>
+                <AiFillPlusSquare />
               </div>
-            </div> */}
-            <button className="btn btn-black text-white mt-5" type="submit">
+
+              <div class="form-group d-flex justify-content-between">
+                <div style={{ width: "-webkit-fill-available" }}>
+                  <label htmlFor="brand"> </label>
+                  <select class="form-control mt-2">
+                    <option>color</option>
+                  </select>
+                </div>
+                <div
+                  style={{ width: "-webkit-fill-available" }}
+                  className="ms-2"
+                >
+                  <label htmlFor="brand"> </label>
+                  <select class="form-control mt-2">
+                    <option>size</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group d-flex justify-content-between">
+                <div style={{ width: "-webkit-fill-available" }}>
+                  <label htmlFor="varient-Price"></label>
+                  <input
+                    type="text"
+                    id="varient-Price"
+                    name="varient-Price"
+                    class="form-control"
+                    placeholder="  price "
+                  />
+                </div>
+                <div style={{ width: "-webkit-fill-available" }} className="ms-2">
+                  <label htmlFor="varient-Stock"></label>
+                  <input
+                    type="text"
+                    id="varient-Stock"
+                    name="varient-Stock"
+                    class="form-control"
+                    placeholder="  Stock "
+                  />
+                </div>
+              </div>
+              <div class="form-group"></div>
+
+              <div className="form-group mt-5 ">
+                <label
+                  for="avatar"
+                  className="d-flex justify-content-start ms-2"
+                >
+                  Product Image
+                </label>
+
+                <input
+                  className="m-2 d-flex justify-content-start "
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept="image/png, image/jpeg"
+                  multiple
+                />
+              </div>
+            </div>
+
+            <button className="btn btn-black text-white mt-5  " type="submit">
               Create
             </button>
           </form>
-        </div>{" "}
+        </div>
       </Modal>
     </>
   );
 };
 
-export default MyModal;
+export default CreateProduct;

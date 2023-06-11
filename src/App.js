@@ -9,9 +9,10 @@ import Login from "./Component/Login/Login";
 import ErroePage from "./Component/erroe-page";
 import Shop from "./Component/Shop/Shop";
 import Statistcs from "./Component/Statistcs/Statistcs";
-import Community from "./Component/Community/Community";
 import Orders from "./Component/Shop/Orders";
 import Providers from "./Component/Providers/Providers";
+import ServiceProvider from "./Component/Customers/Customers";
+import ProviderRequests from "./Component/ProviderRequests/ProviderRequests";
 function ProtectedRouts(props) {
   if (localStorage.getItem("userToken") === null) {
     return <Navigate to="/login" />;
@@ -66,11 +67,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/community",
+        path: "/customers",
         element: (
           <ProtectedRouts>
-            {" "}
-            <Community />
+            <ServiceProvider />{" "}
+          </ProtectedRouts>
+        ),
+      },
+      {
+        path: "/provider-requests",
+        element: (
+          <ProtectedRouts>
+            <ProviderRequests />{" "}
           </ProtectedRouts>
         ),
       },

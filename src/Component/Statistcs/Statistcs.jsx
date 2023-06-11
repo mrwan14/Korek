@@ -5,9 +5,12 @@ import "./Statistcs.css";
 // import Dropdown from "react-bootstrap/Dropdown";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { useContext } from "react";
+import { DataContext } from "../../Context/DataContext";
 
 export default function Statistcs() {
   const [dropDownValue, setdropDownValue] = useState("This month");
+  let { UserTybe } = useContext(DataContext);
 
   return (
     <>
@@ -51,7 +54,7 @@ export default function Statistcs() {
           <div className="item item1 text-white d-flex">
             <h6>Registered Users</h6>
             <div className="d-flex justify-content-end align-items-end">
-              <h1>146</h1>
+              <h1>{UserTybe == "Admin" ? <div>146</div> : <div>5555</div>} </h1>
               <span>user</span>
             </div>
           </div>

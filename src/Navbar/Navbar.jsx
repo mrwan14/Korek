@@ -29,16 +29,20 @@ export default function Navbar() {
               <img src={require("../images/logo3.png")} alt="" />
             </div>{" "}
           </Link>
-          <Link to="/community">
+          <Link to="/customers">
             {" "}
             <div className="icon">
               <img src={require("../images/community.png")} alt="" />
             </div>{" "}
           </Link>
-          <div className="icon">
-            <img src={require("../images/fix.png")} alt="" />
-          </div>{" "}
-          <Link to="/Settings">
+          <Link to="/provider-requests">
+            {" "}
+            <div className="icon">
+              <img src={require("../images/fix.png")} alt="" />
+            </div>{" "}
+          </Link>
+
+          <Link to="/Settings" className=" hidden">
             <div className="icon">
               <img src={require("../images/settings.png")} alt="" />
             </div>{" "}

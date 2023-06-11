@@ -5,17 +5,22 @@ import { DataContext } from "../../Context/DataContext";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { AiFillEdit } from "react-icons/ai";
+import EditProduct from "../CreateProduct/EditProduct";
 
 export default function Products() {
   let [category, setcategory] = useState([]);
+  let userToken = localStorage.getItem("userToken");
   async function getCatogery() {
-    let { data } = await axios.get("https://korek-app.herokuapp.com/category");
-    setcategory(data);
+    let { data } = await axios.get("https://korek-app.herokuapp.com/category", {
+      headers: { Authorization: `Bearer ${userToken}` },
+    });
+
+    setcategory(data.data);
   }
 
   useEffect(() => {
     getCatogery();
-    console.log(category);
   }, []);
 
   let {
@@ -35,10 +40,19 @@ export default function Products() {
       selectedYear.includes(item.Car_Year)
   );
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  // const getProductToEdit = (e) => {
+  //   // const ProductToEdit = Data.find((product) => product.id == e.id);
+  //   console.log(e.target.id);
+  // };
 
   return (
     <div>
-      {" "}
+      {/* {category.map((product) => (
+        <div>
+          <h1>{product._id}</h1>
+          <h1>{product.name}</h1>
+        </div>
+      ))}{" "} */}
       <div>
         <div className="row mt-4">
           <div className="row mt-4">
@@ -60,7 +74,10 @@ export default function Products() {
                         <div className="product">
                           <div className="row gx-2">
                             <div className="col-md-5 col-5">
-                              <div className="img-product">
+                              <div className="img-product position-relative">
+                                <div className="edit-icon position-absolute top-0 start-0">
+                                  <EditProduct product={product} />
+                                </div>
                                 <img
                                   src={`${
                                     product.ImgSrc == null
@@ -121,10 +138,17 @@ export default function Products() {
                 {" "}
                 {Data.map((product) => (
                   <div className="col-md-6  col-sm-12 gy-3 bg-    p-2  product-container ">
-                    <div className="product">
+                    <div
+                      className="product"
+                      onClick={(e) => {
+                      }}
+                    >
                       <div className="row gx-2">
                         <div className="col-md-5 col-5">
-                          <div className="img-product">
+                          <div className="img-product position-relative">
+                            <div className="edit-icon position-absolute top-0 start-0 text-bg-danger">
+                              <EditProduct product={product} />{" "}
+                            </div>
                             <img
                               src={`${
                                 product.ImgSrc == null

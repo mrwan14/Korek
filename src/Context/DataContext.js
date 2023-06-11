@@ -1,11 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 import { getData } from "../api";
-import Pagination from "../Component/Pantigation/pantigation";
 
 export let DataContext = createContext(0);
 
 export default function DataContextProvider(props) {
-  
+  let [UserTybe, setUserTybe] = useState("");
+
+  const getUserTybe = (e) => {
+    UserTybe = e.target.value;
+    setUserTybe(UserTybe);
+  };
+
   const [Data, setData] = useState(null);
   useEffect(() => {
     // Immediately Invoked Functionx
@@ -90,6 +95,8 @@ export default function DataContextProvider(props) {
       value={{
         Data,
         setData,
+        getUserTybe,
+        UserTybe,
         CarBrand,
         carModel,
         ManufactureYear,

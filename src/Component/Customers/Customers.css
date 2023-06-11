@@ -1,0 +1,34 @@
+.providers .container {
+    width: 1200px;
+  }
+  
+  @media (min-width: 0) and (max-width: 360px) {
+    .providers .container {
+      margin-left: 70px;
+      width: 300px;
+    }
+    .product-doesnot-exist
+    {
+      margin-left: 100px;
+    }
+  }
+  @media (min-width: 361px) and (max-width: 576px) {
+    .providers .container {
+      margin-left: 70px;
+  
+      width: 400px;
+    }
+  }
+  @media (min-width: 577px) and (max-width: 778px) {
+    .providers .container {
+      margin-left: 70px;
+  
+      width: 0600px;
+    }
+  }
+  @media (min-width: 778px) and (max-width: 1100px) {
+    .providers .container {
+      margin-left: 50px;
+    }
+  }
+  
